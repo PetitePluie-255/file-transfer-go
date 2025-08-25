@@ -35,11 +35,11 @@ DIST_DIR="$PROJECT_ROOT/dist"
 
 # 平台配置
 PLATFORMS=(
-    "windows/amd64:file-transfer-server.exe"
-    "darwin/amd64:file-transfer-server-macos-amd64"
-    "darwin/arm64:file-transfer-server-macos-arm64"  
+#    "windows/amd64:file-transfer-server.exe"
+#    "darwin/amd64:file-transfer-server-macos-amd64"
+#    "darwin/arm64:file-transfer-server-macos-arm64"  
     "linux/amd64:file-transfer-server-linux-amd64"
-    "linux/arm64:file-transfer-server-linux-arm64"
+#    "linux/arm64:file-transfer-server-linux-arm64"
 )
 
 # 打印函数
