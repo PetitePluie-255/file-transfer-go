@@ -52,6 +52,10 @@ jobs:
         build-args: |
           BINARY=dist/file-transfer-server-linux-amd64
 
+    - name: List Docker images
+      run: docker images
+
+
     - name: Save Docker image to tar file
       run: docker save -o file-transfer-server.tar PetitePluie-255/file-transfer-go:latest
 
