@@ -51,6 +51,7 @@ jobs:
         tags: ${{ env.DOCKER_IMAGE_NAME }}:latest
         build-args: |
           BINARY=dist/file-transfer-server-linux-amd64
+        outputs: type=docker
 
     - name: List Docker images
       run: docker images
