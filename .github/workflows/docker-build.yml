@@ -1,8 +1,8 @@
-name: Build & Publish Docker Image
+name: Build Docker Image
 
 on:
   push:
-    branches: [ main, master ]  # 或你自己想要的分支
+    branches: [ main, master ]  # 你自己需要的分支
   pull_request:
   workflow_dispatch:
 
@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      DOCKER_IMAGE_NAME: yourdockerhub/file-transfer-server  # 修改为你的仓库名
+      DOCKER_IMAGE_NAME: PetitePluie-255/file-transfer-go           # 你可以改成任何本地镜像名
 
     steps:
     - name: Checkout code
@@ -42,18 +42,12 @@ jobs:
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
 
-    - name: Login to Docker Hub
-      uses: docker/login-action@v3
-      with:
-        username: ${{ secrets.DOCKERHUB_USERNAME }}
-        password: ${{ secrets.DOCKERHUB_TOKEN }}
-
-    - name: Build and push Docker image
+    - name: Build Docker image
       uses: docker/build-push-action@v4
       with:
         context: .
-        file: .github/workflows/Dockerfile  # 见下方Dockerfile模板变更
-        push: true
+        file: Dockerfile      # 如有不同路径请修改
+        push: false                            # 关键参数，不推送
         tags: ${{ env.DOCKER_IMAGE_NAME }}:latest
         build-args: |
           BINARY=dist/file-transfer-server-linux-amd64
