@@ -53,7 +53,7 @@ jobs:
           BINARY=dist/file-transfer-server-linux-amd64
 
     - name: Save Docker image to tar file
-      run: docker save -o file-transfer-server.tar mytest/image:latest
+      run: docker save -o file-transfer-server.tar PetitePluie-255/file-transfer-go:latest
 
     - name: Upload Docker image artifact
       uses: actions/upload-artifact@v4
